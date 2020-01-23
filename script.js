@@ -68,11 +68,11 @@ function searchCity(cityInput) {
 
              if (response.value<=2.99) {
                  colorUV.addClass("green");
-             } else if (response.value >= 3 || response.value <=5.99){
+             } else if (response.value >= 3 && response.value <=5.99){
                 colorUV.addClass("yellow");
-             } else if (response.value >= 6 || response.value <=7.99){
+             } else if (response.value >= 6 && response.value <=7.99){
                 colorUV.addClass("orange");
-             } else if (response.value >= 8 || response.value <=9.99){
+             } else if (response.value >= 8 && response.value <=9.99){
                 colorUV.addClass("red");
              } else {
                 colorUV.addClass("violet");
