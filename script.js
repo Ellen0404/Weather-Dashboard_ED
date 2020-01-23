@@ -13,7 +13,7 @@ function searchCity(cityInput) {
     // GET CITY INFO  
 
     var myApi = "a3b7974d1c92aeb51799206f2819a5fa";
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityInput + "&APPID=" + myApi;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput + "&APPID=" + myApi;
 
     $.ajax({
         url: queryURL,
@@ -28,7 +28,7 @@ function searchCity(cityInput) {
 
         var icon = $("<img>");
         var iconImg = response.weather[0].icon;
-        icon.attr("src", "http://openweathermap.org/img/wn/" + iconImg + "@2x.png");
+        icon.attr("src", "https://openweathermap.org/img/wn/" + iconImg + "@2x.png");
         icon.attr("width",120);
         $("#icon").html(icon);
 
@@ -57,7 +57,7 @@ function searchCity(cityInput) {
         var coordLat = response.coord.lat;
 
         // GET UV INDEXX API 
-        var queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?lat=" + coordLat + "&lon=" + coordLon + "&APPID=a3b7974d1c92aeb51799206f2819a5fa";
+        var queryURL2 = "https://api.openweathermap.org/data/2.5/uvi?lat=" + coordLat + "&lon=" + coordLon + "&APPID=a3b7974d1c92aeb51799206f2819a5fa";
 
         $.ajax({
             url: queryURL2,

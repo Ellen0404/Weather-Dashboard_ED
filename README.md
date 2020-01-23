@@ -13,3 +13,5 @@ After refreshing the page or even closing the page and open it again you will be
 <img src ="./assets/readme/22-01-2020 21-39-13.jpg" width = 300px><br>
 Enjoy your new personal Weather-Dashboard!<br>
 
+PS. Here is a link to the deployed GitHub Pages<br>
+<a href ="https://ellen0404.github.io/Weather-Dashboard_ED/">Link to my Weather-Dashboard</a>
