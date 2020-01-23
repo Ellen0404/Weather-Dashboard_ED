@@ -97,7 +97,7 @@ function searchCity(cityInput) {
         for (j = 5; j < 40; j += 8) {
             var cardBlock = $("<div>").addClass("card card-color");
             var dataForecast = $("<h7>").text((response.list[j].dt_txt).substring(0, 10));
-            var iconForecast = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + response.list[j].weather[0].icon + "@2x.png");
+            var iconForecast = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + response.list[j].weather[0].icon + "@2x.png");
             iconForecast.attr("width",100);               
             var tempFixed = ((response.list[j].main.temp - 273.15) * 1.80 + 32).toFixed(2);
             var tempForecast = $("<h7>").text("Temp: " + tempFixed + " °F");
