@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <!-- // content html -->
+    <div class="container">
+        <div class="divBlock">
+            <h1 class="text-center">Weather Dashboard</h1>
+        </div>
+        <div class="row">
+            <!-- first column -->
+            <div class="col-md-4">
+                <div class="card card-color">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Search for a city</h5>
+                        <div class="input-group">
+                            <input id="city-input" type="text" class="form-control" placeholder="City name..">
+                            <div class="input-group-append">
+                                <button id="searchBtn" class="btn btn-secondary" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <ul id="savedCities" class="list-group list-group-flush"></ul>
+
+                </div>
+            </div>
+            <!-- second column -->
+            <div class="col-md-8 column">
+                <!-- card for city details results  -->
+                <div class="card">
+                    <div class="card-header">
+                        <strong><span id="city">City:</span></strong>
+                        <strong><span id="date"></span></strong>
+                        <span id="icon"></span>
+                    </div>
+                    <div class="card-body" id="article-section">
+                        <p id="temperature">Temperature: </p>
+                        <p id="humidity">Humidity: </p>
+                        <p id="wind-speed">Wind Speed: </p>
+                        <p id="uv-index">UV Index: </p>
+
+                    </div>
+                </div>
+
+                <!-- card for forecast  -->
+                <div class="card">
+                    <div class="card-header">
+                        <strong>5-Day Forecast: </strong>
+                    </div>
+                    <div  class ="card-body">
+                        <div id="cardsHolder" class="card-deck"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
