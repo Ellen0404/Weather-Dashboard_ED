@@ -19,11 +19,9 @@ function searchCity(cityInput) {
         url: queryURL,
         method: "GET",
     }).then(function (response) {
-
+        console.log(queryURL)
         $("#city").html("<span class='cityFont'>" + response.name + "</span>");
-      
-        // var s = new Date(response.dt).toLocaleDateString("en-US");
-        // $("#date").text(s);
+   
         $("#date").html("<span class='cityFont'>" +(moment().format('L')) + "</span>");
 
         var icon = $("<img>");
@@ -33,7 +31,20 @@ function searchCity(cityInput) {
         $("#icon").html(icon);
 
         var tempF = ((response.main.temp - 273.15) * 1.80 + 32).toFixed(2);
-        $("#temperature").text("Temperature: " + tempF + " °F");
+        $("#temperature").html("Temperature: " + tempF + " °F" + "<button id ='switcher'class='btn btn-color'> switch to °C</button>");
+       var isSwitched = true;
+        $("#switcher").on("click",function(){
+          
+            if(!isSwitched){
+                tempF = ((response.main.temp - 273.15) * 1.80 + 32).toFixed(2);
+                $("#temperature").html("Temperature: " + tempF + " °F" + "<button id ='switcher'class='btn btn-color'> switch to °C</button>");
+                isSwitched = true;
+            } else {
+                tempF=((response.main.temp - 273.15)).toFixed(0);
+                $("#temperature").html("Temperature: " + tempF + " °C" + "<button id ='switcher'class='btn btn-color'> switch to °F</button>");
+                isSwitched=false;
+            }
+       })
         console.log(tempF);
         typeof(tempF);
         if (tempF>= 50){
@@ -46,9 +57,7 @@ function searchCity(cityInput) {
         $("body").css("backgroundImage", "url(./assets/forest-pathways-photo-1996051.jpg)");
         $("body").css("backgroundSize","cover");
         }
-        // var picDiv =$("<img>").attr("src","./assets/shallow-focus-of-yellow-flowers-946290.jpg");
-        // picDiv.attr("width",300);
-        // $("#article-section").append(picDiv);
+    
         var humidity = response.main.humidity;
         $("#humidity").text("Humidity: " + humidity);
         $("#wind-speed").text("Wind Speed: " + response.wind.speed);
@@ -91,12 +100,12 @@ function searchCity(cityInput) {
         url: queryURL2,
         method: "GET"
     }).then(function (response) {
-      
+      console.log(queryURL2)
         $("#cardsHolder").empty();
 
         for (j = 5; j < 40; j += 8) {
             var cardBlock = $("<div>").addClass("card card-color");
-            var dataForecast = $("<h7>").text((response.list[j].dt_txt).substring(0, 10));
+            var dataForecast = $("<h7>").text(moment.unix(response.list[j].dt).format('MM/DD/YYYY'));
             var iconForecast = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + response.list[j].weather[0].icon + "@2x.png");
             iconForecast.attr("width",100);               
             var tempFixed = ((response.list[j].main.temp - 273.15) * 1.80 + 32).toFixed(2);
