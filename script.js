@@ -19,7 +19,7 @@ function searchCity(cityInput) {
         url: queryURL,
         method: "GET",
     }).then(function (response) {
-        console.log(queryURL)
+       
         $("#city").html("<span class='cityFont'>" + response.name + "</span>");
    
         $("#date").html("<span class='cityFont'>" +(moment().format('L')) + "</span>");
@@ -45,8 +45,7 @@ function searchCity(cityInput) {
                 isSwitched=false;
             }
        })
-        console.log(tempF);
-        typeof(tempF);
+       
         if (tempF>= 50){
             $("body").css("backgroundImage", "url(./assets/shallow-focus-of-yellow-flowers-946290.jpg)");
             $("body").css("backgroundSize","cover");
@@ -100,7 +99,7 @@ function searchCity(cityInput) {
         url: queryURL2,
         method: "GET"
     }).then(function (response) {
-      console.log(queryURL2)
+    
         $("#cardsHolder").empty();
 
         for (j = 5; j < 40; j += 8) {
