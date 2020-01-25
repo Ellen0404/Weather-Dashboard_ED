@@ -33,7 +33,7 @@ function searchCity(cityInput) {
         var tempF = ((response.main.temp - 273.15) * 1.80 + 32).toFixed(2);
         $("#temperature").html("Temperature: " + tempF + " °F" + "<button id ='switcher'class='btn btn-color'> switch to °C</button>");
        var isSwitched = true;
-        $("#switcher").on("click",function(){
+        $("body").on("click", "#switcher",function(){
           
             if(!isSwitched){
                 tempF = ((response.main.temp - 273.15) * 1.80 + 32).toFixed(2);
