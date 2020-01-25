@@ -1,4 +1,6 @@
 var cities = [];
+var isSwitched = false;
+var temp = 0;
 
 $("#searchBtn").on("click", function () {
     var cityInput = $("#city-input").val();
@@ -7,6 +9,19 @@ $("#searchBtn").on("click", function () {
     renderCities();
 
 });
+
+$("body").on("click",".switcher", function(){
+    console.log(  isSwitched, temp)
+      if(!isSwitched){
+          tempF = ((temp - 273.15) * 1.80 + 32).toFixed(2);
+          $("#temperature").html("Temperature: " + tempF + " °F" + "<button id ='switcher'class=' switcher btn btn-color'> switch to °C</button>");
+          isSwitched = true;
+      } else {
+          tempF=(( temp - 273.15)).toFixed(0); 
+          $("#temperature").html("Temperature: " + tempF + " °C" + "<button id ='switcher'class='switcher btn btn-color'> switch to °F</button>");
+          isSwitched=false;
+      }
+ });
 
 function searchCity(cityInput) {
 
@@ -31,20 +46,9 @@ function searchCity(cityInput) {
         $("#icon").html(icon);
 
         var tempF = ((response.main.temp - 273.15) * 1.80 + 32).toFixed(2);
-        $("#temperature").html("Temperature: " + tempF + " °F" + "<button id ='switcher'class='btn btn-color'> switch to °C</button>");
-       var isSwitched = true;
-        $("#switcher").on("click",function(){
-          
-            if(!isSwitched){
-                tempF = ((response.main.temp - 273.15) * 1.80 + 32).toFixed(2);
-                $("#temperature").html("Temperature: " + tempF + " °F" + "<button id ='switcher'class='btn btn-color'> switch to °C</button>");
-                isSwitched = true;
-            } else {
-                tempF=((response.main.temp - 273.15)).toFixed(0);
-                $("#temperature").html("Temperature: " + tempF + " °C" + "<button id ='switcher'class='btn btn-color'> switch to °F</button>");
-                isSwitched=false;
-            }
-       })
+        $("#temperature").html("Temperature: " + tempF + " °F" + "<button id ='switcher'class='switcher btn btn-color'> switch to °C</button>");
+        temp = response.main.temp;
+      
         console.log(tempF);
         typeof(tempF);
         if (tempF>= 50){
