@@ -46,6 +46,7 @@ function searchCity(cityInput) {
             }
        })
        
+       // BACKGROUND IMAGE CHANGE
         if (tempF>= 50){
             $("body").css("backgroundImage", "url(./assets/shallow-focus-of-yellow-flowers-946290.jpg)");
             $("body").css("backgroundSize","cover");
